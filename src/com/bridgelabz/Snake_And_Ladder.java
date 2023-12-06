@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 public class Snake_And_Ladder {
-    public static final int noPlay = 0;
+    public static final int noPlay = 0; 
     public static final int ladder = 1;
     public static final int snake = 2;
     public static void main(String[] args) {
@@ -11,16 +11,23 @@ public class Snake_And_Ladder {
 
         int diceRoll = (int) (Math.random() * 6) + 1;
 
-        int options = (int)(Math.random()*3);
-        switch(options){
-            case noPlay :
-                break;
-            case ladder:
-                start += diceRoll;
-                break;
-            case snake:
-                start -= diceRoll;
-                break;
-        }
+        do{
+
+            int options = (int)(Math.random()*3);
+            switch(options){
+                case noPlay :
+                    break;
+                case ladder:
+                    start += diceRoll;
+                    break;
+                case snake:
+                    start -= diceRoll;
+                    if(start < 0){//UC4
+                        start = 0;
+                    }
+                    break;
+            }
+        }while(start<100);
+
     }
 }
