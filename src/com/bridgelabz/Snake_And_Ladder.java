@@ -7,10 +7,23 @@ public class Snake_And_Ladder {
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and Ladder game");
         //Snake and Ladder game played with single player at start position 0
-        int start = 0;
-        int diceRoll = (int) (Math.random() * 6) + 1;
-        int c = 0;
+        int start1 = 0;
+        int start2 = 0;
+        int c1 = 0;
+        int c2 = 0;
+        c1 = whoWins(start1,c1);
+        c2 = whoWins(start2,c2);
+        System.out.println("throws taken by player1 :" + c1);
+        System.out.println("throws taken by player1 :" + c2);
+        if(c1>c2){
+            System.out.println("Player 2 wins");
+        }else{
+            System.out.println("Player 1 wins");
+        }
+    }
+    public static int whoWins(int start, int c){
         do{
+            int diceRoll = (int) (Math.random() * 6) + 1;
             int options = (int)(Math.random()*3);
             switch(options){
                 case noPlay :
@@ -29,8 +42,7 @@ public class Snake_And_Ladder {
                     break;
             }
             c++;
-            System.out.println("dice :"+diceRoll+" position: "+ start);
         }while(start<100);
-        System.out.println("Dice thrown: "+c);
+        return c;
     }
 }
